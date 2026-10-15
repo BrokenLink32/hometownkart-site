@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hometown Kart – kart racing on the real streets of Bulli</title>
+<meta name="description" content="Race karts round a 2.7 km loop of the real Bulli, NSW: drift for mini-turbos, dodge the roos and the wheelie bins, and race real players online.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hometown Kart">
+<meta property="og:title" content="Hometown Kart">
+<meta property="og:description" content="Kart racing on the real streets of Bulli, NSW: drift, boost and dodge the roos.">
+<meta property="og:url" content="https://hometownkart.bitscience.ai/">
+<meta property="og:image" content="https://hometownkart.bitscience.ai/assets/hero.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/assets/icon-512.png">
+<style>
+  :root {
+    --navy: #121f3d; --navy-2: #1a2b52; --sun: #ffcc2e; --coral: #ff6b54; --sea: #33c7db; --cream: #fffcf5;
+    --ink: #121f3d; --muted: #4a5875; --card: #ffffff; --line: #e6e1d4;
+    --display: "Arial Rounded MT Bold", "Nunito", "Varela Round", "Segoe UI", system-ui, sans-serif;
+    --body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font: 17px/1.55 var(--body); }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  header.top { background: var(--navy); color: var(--cream); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 22px/1 var(--display); letter-spacing: .01em; }
+  .brand img { width: 40px; height: 40px; border-radius: 10px; }
+  nav.links { display: flex; gap: 22px; font-weight: 600; font-size: 15px; }
+  nav.links a { text-decoration: none; opacity: .85; }
+  nav.links a:hover { opacity: 1; color: var(--sun); }
+
+  .hero { background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); color: var(--cream); overflow: hidden; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; padding-top: 56px; padding-bottom: 72px; }
+  .hero h1 { font: 52px/1.05 var(--display); margin: 0 0 18px; letter-spacing: -.01em; }
+  .hero h1 em { font-style: normal; color: var(--sun); }
+  .hero p.lede { font-size: 19px; margin: 0 0 28px; color: #d9e2f5; max-width: 34em; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 14px; font: 17px/1 var(--display); text-decoration: none; }
+  .btn.soon { background: var(--sun); color: var(--navy); box-shadow: 0 4px 0 #c99a12; }
+  .btn.ghost { border: 2px solid rgba(255,252,245,.35); color: var(--cream); }
+  .btn.ghost:hover { border-color: var(--sun); color: var(--sun); }
+  .hero .art { position: relative; }
+  .hero .art img { border-radius: 22px; box-shadow: 0 24px 60px rgba(0,0,0,.45); transform: rotate(1.5deg); }
+  .hero .note { margin-top: 14px; font-size: 14px; color: #aab8d6; }
+
+  section { padding: 72px 0; }
+  h2 { font: 36px/1.15 var(--display); margin: 0 0 12px; }
+  .sub { color: var(--muted); margin: 0 0 36px; max-width: 40em; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px 22px 22px; position: relative; overflow: hidden; }
+  .feature::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--accent, var(--sun)); }
+  .feature h3 { font: 21px/1.2 var(--display); margin: 6px 0 8px; }
+  .feature p { margin: 0; color: var(--muted); font-size: 16px; }
+  .f1 { --accent: var(--sun); } .f2 { --accent: var(--coral); } .f3 { --accent: var(--sea); }
+  .f4 { --accent: var(--coral); } .f5 { --accent: var(--sea); } .f6 { --accent: var(--sun); }
+
+  .shots-band { background: var(--navy); color: var(--cream); }
+  .shots-band .sub { color: #c4d0ea; }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .shots figure { margin: 0; }
+  .shots img { border-radius: 14px; aspect-ratio: 16 / 9; object-fit: cover; width: 100%; border: 1px solid rgba(255,255,255,.08); }
+  .shots figcaption { font-size: 14px; color: #aab8d6; margin-top: 8px; }
+
+  .place .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+  .place ul { margin: 0; padding-left: 20px; color: var(--muted); }
+  .place li { margin: 6px 0; }
+  .pill { display: inline-block; background: var(--sea); color: var(--navy); font: 14px/1 var(--display); padding: 8px 12px; border-radius: 999px; margin-bottom: 14px; }
+
+  footer { background: var(--navy); color: #c4d0ea; font-size: 15px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; padding-top: 28px; padding-bottom: 28px; }
+  footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--sun); }
+
+  @media (max-width: 900px) {
+    .hero .wrap, .place .wrap { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 40px; }
+    .features, .shots { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    nav.links { display: none; }
+    .hero .wrap { padding-top: 36px; padding-bottom: 48px; }
+    .hero h1 { font-size: 34px; }
+    section { padding: 52px 0; }
+    h2 { font-size: 28px; }
+    .features, .shots { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/icon-512.png" alt="">Hometown Kart</a>
+    <nav class="links">
+      <a href="#features">Features</a>
+      <a href="#screens">Screens</a>
+      <a href="#bulli">The track</a>
+      <a href="https://brokenlink32.github.io/dev404system-legal/hometown-kart/">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Kart racing on the <em>real streets</em> of Bulli</h1>
+        <p class="lede">Race round a 2.7 km loop of Bulli on the NSW South Coast. Drift for mini-turbos, dodge the roos and the wheelie bins, smash your kart to bits, and race up to eight players online.</p>
+        <div class="cta">
+          <span class="btn soon" aria-disabled="true">Coming soon to Google Play</span>
+          <a class="btn ghost" href="#screens">See it in action</a>
+        </div>
+        <p class="note">Free. No ads, no in-app purchases.</p>
+      </div>
+      <div class="art"><img src="/assets/hero.png" width="1024" height="500" alt="Sunny the cockatoo racing a yellow kart past Bulli beach"></div>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>Small town. Big race.</h2>
+      <p class="sub">Everything you'd see on a drive round Bulli is in the race, and most of it is in your way.</p>
+      <div class="features">
+        <div class="feature f1"><h3>Drift, boost, launch</h3><p>Drift through the bends for mini-turbos, hit the boost pads and fly off the ramps.</p></div>
+        <div class="feature f2"><h3>Throw the local stuff</h3><p>Pinecones, boomerangs, seaweed on the road, and a magpie you can send after the leader.</p></div>
+        <div class="feature f3"><h3>Mind the locals</h3><p>Kangaroos crossing Blackall Street, wheelie bins on bin night, cockatoos on lap 2 and magpies swooping in spring.</p></div>
+        <div class="feature f4"><h3>Smash 'em up</h3><p>Hit hard enough and your kart flies to bits in a cartoon puff, then pops back together on the track.</p></div>
+        <div class="feature f5"><h3>Race real people</h3><p>Up to eight racers online on the Sydney server, with AI filling the grid, a leaderboard and a lap record.</p></div>
+        <div class="feature f6"><h3>Your driver, your kart</h3><p>Sunny the cockatoo, Gala the galah, Kooka the kookaburra or Lori the lorikeet, in the kart and colours you pick.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screens" class="shots-band">
+    <div class="wrap">
+      <h2>On the track</h2>
+      <p class="sub">Touch controls with auto-accelerate on phones, or plug in a controller.</p>
+      <div class="shots">
+        <figure><img src="/assets/shots/racing.jpg" loading="lazy" alt="Racing along the coast road"><figcaption>Leading the pack past the houses</figcaption></figure>
+        <figure><img src="/assets/shots/boost.jpg" loading="lazy" alt="A kart boosting"><figcaption>Boost pads and mini-turbos</figcaption></figure>
+        <figure><img src="/assets/shots/magpie_swoop.jpg" loading="lazy" alt="A magpie swooping at a kart"><figcaption>Swooping season</figcaption></figure>
+        <figure><img src="/assets/shots/smashed.jpg" loading="lazy" alt="A kart smashed to bits"><figcaption>One knock too many</figcaption></figure>
+        <figure><img src="/assets/shots/garage.jpg" loading="lazy" alt="The garage with driver and kart choices"><figcaption>Pick your driver and colours</figcaption></figure>
+        <figure><img src="/assets/shots/freecam_beach.jpg" loading="lazy" alt="Bulli beach from the free camera"><figcaption>Explore Bulli at your own pace</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="bulli" class="place">
+    <div class="wrap">
+      <div>
+        <span class="pill">Bulli, NSW</span>
+        <h2>A real place, one lap at a time</h2>
+        <p class="sub">The track follows real streets, rebuilt from the map, and Bulli's real sky: live time of day and weather, with rain making the roads slippery.</p>
+        <ul>
+          <li>Up Trinity Row and Blackall Street, past the beach</li>
+          <li>Round the Sandon Point headland and its hairpin</li>
+          <li>Back through the neighbourhood's streets, paths and parks</li>
+        </ul>
+      </div>
+      <img src="/assets/shots/sandon_point.jpg" loading="lazy" alt="Karts racing at Sandon Point" style="border-radius:18px">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Hometown Kart &middot; Dev404 Systems</span>
+    <nav>
+      <a href="https://brokenlink32.github.io/dev404system-legal/hometown-kart/">Support</a>
+      <a href="https://brokenlink32.github.io/dev404system-legal/hometown-kart/privacy.html">Privacy</a>
+      <a href="https://brokenlink32.github.io/dev404system-legal/hometown-kart/delete-account.html">Delete your account</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
